@@ -1,8 +1,8 @@
 const express = require("express");
-const path = require("path");
+//const path = require("path");
 const app = express();
 const routes = require("./src/routes/users.routes");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser");
 require("./database");
 
 //setings
@@ -14,7 +14,7 @@ app.use((req, res, next) => {
   console.log(`${req.url}  -${req.method}`);
   next();
 });
-app.use(express.json());
+app.use(express.json);
 app.use(express.urlencoded({ extended: false }));
 
 //routes

@@ -1,12 +1,12 @@
  const { Router } = require('express');
  const router = Router();
  
- const {agregarUsuario, modificarUsuario, borrarUsuario, mostrarUsuariosTotales, mostrarUsuariosActivos} = require('../controllers/userControllers')
+ const {mostrarUsuariosTotales, mostrarUsuariosActivos} = require('../controllers/userControllers')
 
 
  router.get('/activos', mostrarUsuariosActivos);
  router.get('/all', mostrarUsuariosTotales);
- router.post('/add', agregarUsuario);
+ //router.post('/add', agregarUsuario);
  //router.put('/edit', modificarUsuario);
  //router.put('/delete', borrarUsuario);
 

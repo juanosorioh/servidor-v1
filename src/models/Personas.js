@@ -33,7 +33,7 @@ const PerfilSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  Roles: [
+  perfiles: [
     {
       rol: [
         {

@@ -10,6 +10,7 @@ app.set("port", process.env.PORT || 3000);
 
 //middlewares
 app.use((req, res, next) => {
+  //nos dicen las rutas y el metodo de consulta
   console.log(`${req.url}  -${req.method}`);
   next();
 });
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //routes
 
-app.use(routes);
+app.use('api/',routes);
 
 //start a server
 app.listen(app.get("port"), () => {

@@ -16,7 +16,9 @@ ctrlUser.agregarUsuario = async (req, res) => {
       {
         rol: [
         {
-            alumno
+            alumno,
+            profesor,
+            administrativo
           },
         ],
         datosAlumnos: [
@@ -30,7 +32,7 @@ ctrlUser.agregarUsuario = async (req, res) => {
     ]
   } = req.body;
   
-  //creamos un nuevo usuario =>alumno
+  //creamos un nuevo usuario
   const user = new User({
     email, 
     password, 
@@ -43,7 +45,9 @@ ctrlUser.agregarUsuario = async (req, res) => {
       {
         rol: [
         {
-            alumno
+            alumno,
+            profesor,
+            administrativo
           },
         ],
         datosAlumnos: [
@@ -76,11 +80,11 @@ ctrlUser.mostrarUsuariosTotales = async (req, res) => {
 };
 
 //borrado logico
-ctrlUser.borrarUsuario = async (req, res) =>{
+/* ctrlUser.borrarUsuario = async (req, res) =>{
   const {id} = req.params;
   const user = await User.findByIdAndUpdate(id, {activo:false})
   res.json({msg:"usuario eliminado correctamente: ",user})
 return user;
-};
+}; */
 
 module.exports = ctrlUser;

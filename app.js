@@ -14,12 +14,12 @@ app.use((req, res, next) => {
   console.log(`${req.url}  -${req.method}`);
   next();
 });
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //routes
 
-app.use('api/',routes);
+app.use(routes);
 
 //start a server
 app.listen(app.get("port"), () => {

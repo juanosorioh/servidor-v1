@@ -1,42 +1,42 @@
 const mongoose = require("mongoose");
 
 const PerfilSchema = new mongoose.Schema({
-  idUser: {
+  /* idUser: {
     type: Schema.Types.ObjectId,
     ref: "User",
-  },
+  }, */
   nombre: {
     type: String,
-    required: true,
+    //required: true,
   },
   apellido: {
     type: String,
-    required: true,
+    //required: true,
   },
   email: {
     type: String,
-    required: true,
+    //required: true,
   },
   password: {
     type: String,
-    required: true,
+    //required: true,
   },
   birthdate: {
-    type: Date,
-    required: true,
+    type: String,
+    //required: true,
   },
   dni: {
     type: Number,
-    required: true,
+    //required: true,
   },
   telefono: {
     type: String,
-    required: true,
+    //required: true,
   },
   perfiles: [
     {
       rol: [
-        {
+      {
           alumno: { type: Boolean, default: true },
           profesor: { type: Boolean, default: false },
           administrativo: { type: Boolean, default: false },
@@ -54,4 +54,4 @@ const PerfilSchema = new mongoose.Schema({
   activo: { type: Boolean, default: true },
 });
 
-module.exports = mongoose.model("Perfil", PerfilSchema);
+module.exports = mongoose.model("User", PerfilSchema);

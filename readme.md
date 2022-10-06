@@ -53,11 +53,19 @@
 
 -generacion de JWT-❌💥➡**0?/10/22**
 
+
 ❌ ⭕ ✅ 👁‍🗨 💥 ➡
 
+
 ❌➡sin realizar
+
 ⭕➡realizando
+
 ✅➡hecho
+
 ❗➡con dificultades
+
 👁‍🗨➡investigar
+
 💥➡buscar ayuda
+

@@ -1,4 +1,5 @@
 # **actividades backend**
+
 -realizacion de las colecciones✅➡**03/10/22**
 -coneccion a bd✅➡**05/05/22**
 -creacion de las rutas de alumnos⭕➡ **05/10/22**

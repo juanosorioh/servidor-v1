@@ -13,6 +13,12 @@ ctrlProfesor.mostrarTodos = async (req, res) => {
     const alumnos = await Alumnos.find();
     res.json({alumnos});
     return alumnos;
+
+//!agregar notas
+
+//!agregar anuncios
+
+//!agregar comentarios
 }
 
 module.exports = ctrlProfesor;

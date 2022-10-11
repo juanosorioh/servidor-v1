@@ -2,8 +2,11 @@ const User = require("../models/Personas");
 const ctrlUser = {};
 
 //agregar un usuario //!controlador funcionando pero solo a modo de prueba ya que debe ir en los controladores de administrativos
+
 /* ctrlUser.agregarUsuario = async (req, res) => {
-  //desestructuramos los datos
+
+todo: desestructuramos los datos
+
   const { 
     email, 
     password, 
@@ -32,7 +35,8 @@ const ctrlUser = {};
     ]
   } = req.body;
   
-  //creamos un nuevo usuario
+  todo: creamos un nuevo usuario
+  
   const user = new User({
     email, 
     password, 

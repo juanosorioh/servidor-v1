@@ -15,6 +15,9 @@ ctrlProfesor.mostrarTodos = async (req, res) => {
     return alumnos;
 
 //!agregar notas
+ctrlProfesor.agregarNotas = async (req, res) => {
+    
+}
 
 //!agregar anuncios
 

@@ -3,9 +3,9 @@ const ctrlUser = {};
 
 //agregar un usuario //!controlador funcionando pero solo a modo de prueba ya que debe ir en los controladores de administrativos
 
-/* ctrlUser.agregarUsuario = async (req, res) => {
+ctrlUser.agregarUsuario = async (req, res) => {
 
-todo: desestructuramos los datos
+//todo: desestructuramos los datos
 
   const { 
     email, 
@@ -35,7 +35,7 @@ todo: desestructuramos los datos
     ]
   } = req.body;
   
-  todo: creamos un nuevo usuario
+  //todo: creamos un nuevo usuario
   
   const user = new User({
     email, 
@@ -67,7 +67,7 @@ todo: desestructuramos los datos
   await user.save();
   res.json({msg:"usuario agregado correctamente", user });
   return user;
-}; */
+};
 
 //mostrar usuarios activos
 ctrlUser.mostrarUsuariosActivos = async (req, res) => {
@@ -76,13 +76,21 @@ ctrlUser.mostrarUsuariosActivos = async (req, res) => {
   return user;
 };
 
-//mostrar usuarios totales
+//mostrar usuarios totales 
 ctrlUser.mostrarUsuariosTotales = async (req, res) => {
-  const user = await User.find();
+  try {
+    const user = await User.find();
   res.json({ user });
   return user;
+  } catch (error) {
+    console.log(error)
+  }
+  
 };
 
 //!agregar comentarios
+ctrlUser.agregarComentario = async (req, res) => {
+  //
+}
 
 module.exports = ctrlUser;

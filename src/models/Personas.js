@@ -54,4 +54,4 @@ const PerfilSchema = new mongoose.Schema({
   activo: { type: Boolean, default: true }
 });
 
-module.exports = mongoose.model("User", PerfilSchema);
+module.exports = mongoose.model("Users", PerfilSchema);

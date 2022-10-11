@@ -14,4 +14,4 @@ const UserSchema = new mongoose.Schema({
   activo: { type: Boolean, default: true },
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("UsersEj", UserSchema);

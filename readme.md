@@ -1,6 +1,6 @@
 # **actividades backend**
 
--realizacion de las colecciones⭕❗➡**03/10/22**
+-realizacion de las colecciones✅➡**03/10/22**
 
 *necesidad de generar referencias*
 
@@ -18,16 +18,16 @@
 
 -creacion de los controladores de alumnos-
 
---mostrar activos✅➡ **06/10/22** 💥 **10/10/22**
+--mostrar activos✅➡ **06/10/22** 
 
---mostrar todo✅➡ **06/10/22**  💥 **10/10/22**
+--mostrar todo✅➡ **06/10/22**  
 
 -creacion de los controladores de profesores
 
 
---mostrar activos⭕➡ **06/10/22** 💥 **10/10/22**
+--mostrar activos⭕➡ **06/10/22** 
 
---mostrar todo⭕➡ **06/10/22**  💥 **10/10/22**
+--mostrar todo⭕➡ **06/10/22**  
 
 --buscar uno❌➡ **0?/10/22**
 
@@ -35,15 +35,15 @@
 
 -creacion de los controladores de administrativos
 
---mostrar activos⭕💥➡ **06/10/22**
+--mostrar activos⭕➡ **06/10/22**
 
---mostrar todo⭕💥➡ **06/10/22**  
+--mostrar todo⭕➡ **06/10/22**  
 
 --buscar uno❌➡ **0?/10/22**
 
 --agregar⭕❗➡ **0?/10/22**
 
---borrar(logica)⭕💥➡ **0?/10/22**
+--borrar(logica)⭕➡ **0?/10/22**
 
 
 

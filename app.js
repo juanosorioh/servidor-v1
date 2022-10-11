@@ -16,12 +16,12 @@ app.set("port", process.env.PORT || 3000);
 
 
 //middlewares
-app.use((req, res, next) => {
-  //nos dicen las rutas y el metodo de consulta
-  console.log(`${req.url}  -${req.method}  `);
-  next();
-});
-app.use(express.json);
+// app.use((req, res, next) => {
+//   //nos dicen las rutas y el metodo de consulta
+//   console.log(`${req.url}  -${req.method}  `);
+//   next();
+// });
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(morgan('dev'));
 app.use(cors())
@@ -30,13 +30,15 @@ app.use(cors())
 
 
 //routes
-app.use(routes);
-/* app.use('u/', require('./src/routes/users.routes'));
-app.use('p/', require('./src/routes/profesores.routes'));
-app.use('a/', require('./src/routes/administrativos.routes')); */
+//app.use(routes);
+ //app.use('/', require('./src/routes/users.routes'))
+//app.get('/', (req, res = express.response) => res.send("Hola"))
+app.use('/', require('./src/routes/users.routes'));
+//app.use('p/', require('./src/routes/profesores.routes'));
+//app.use('a/', require('./src/routes/administrativos.routes'));
 
 
-//start a server
+//start a server 
 app.listen(app.get("port"), () => {
   console.log(`escuchando en el puerto ${app.get("port")}`);
 });

@@ -11,4 +11,4 @@ router.post('notas')
 router.put('notas')
 router.put('anuncio')
 
-module.exports = router;
+//module.exports = router;

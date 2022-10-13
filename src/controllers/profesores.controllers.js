@@ -1,32 +1,51 @@
 const Alumnos = require("../models/Personas");
 const ctrlProfesor = {};
 
-//mostrar los alumnos activos
-ctrlProfesor.mostrarActivos = async (req, res) =>{
+//mostrar los alumnos
+ctrlProfesor.mostrarAlumnos = async (req, res) =>{
     const alumnos = await Alumnos.find({activo:true});
     res.json({alumnos});
     return alumnos;
 }
 
-//mostrar alumnos totales, tanto activos como dados de baja
-ctrlProfesor.mostrarTodos = async (req, res) => {
-    const alumnos = await Alumnos.find();
-    res.json({alumnos});
-    return alumnos;
-}
 
-//!agregar notas
-ctrlProfesor.agregarNota = async (req, res) => {
+//!mostrar Anuncios
+ctrlProfesor.mostrarAnuncios = async (req, res) => {
         
 }
 
-//!agregar anuncios
-ctrlProfesor.agregarAnuncio = async (req, res) => {
+//!crear Anuncios
+ctrlProfesor.crearAnuncios = async (req, res) => {
         
 }
 
-//!agregar comentarios
-ctrlProfesor.agregarComentario = async (req, res) => {
+//!modificar Anuncios
+ctrlProfesor.modificarAnuncios = async (req, res) => {
+        
+}
+
+//!borrar Anuncios
+ctrlProfesor.borrarAnuncios = async (req, res) => {
+        
+}
+
+//!Crear Comentarios
+ctrlProfesor.CrearComentarios = async (req, res) => {
+        
+}
+
+//!borrar Comentarios
+ctrlProfesor.borrarComentarios = async (req, res) => {
+        
+}
+
+//!modificar Comentarios
+ctrlProfesor.modificarComentarios = async (req, res) => {
+        
+}
+
+//!modificar Notas
+ctrlProfesor.modificarNotas = async (req, res) => {
         
 }
 

@@ -25,7 +25,7 @@
 
 --mostrar notas⭕➡ **11/10/22** 
 
---mostrar agregar comentarios⭕➡ **11/10/22** 
+-- agregar comentarios⭕💥➡ **11/10/22** 
 
 
 -creacion de los controladores de profesores

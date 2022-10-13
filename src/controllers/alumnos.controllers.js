@@ -98,7 +98,7 @@ ctrlAlumno.mostrarMaterias = async (req, res) => {
 //!mostrar notas
 ctrlAlumno.mostrarNotas = async (req, res) => {
   try {
-    const nota = await Materia.notas.find()
+    const nota = await notas.find()
     res.json({nota})
     return nota;  
   } catch (error) {
@@ -109,7 +109,13 @@ ctrlAlumno.mostrarNotas = async (req, res) => {
 
 //!agregar comentarios
 ctrlAlumno.agregarComentarios = async (req, res) => {
-  const { comentarios } = req.body
+  const {fecha, autor, comentario} = req.body;
+  const {...resto} = req.body;
+  const newComment = new Anuncio(
+  )
+  await comment.save();
+  console.log(coment);
+  return comment;
 }
 
 module.exports = ctrlAlumno;

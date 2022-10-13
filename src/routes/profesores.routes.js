@@ -9,6 +9,8 @@ const {
   borrarAnuncios,
   CrearComentarios,
   borrarComentarios,
+  modificarComentarios,
+  modificarNotas
 } = require("../controllers/profesores.controllers");
 
 router.get("/mostrarAlumnos", mostrarAlumnos);
@@ -22,4 +24,4 @@ router.put("/borrarComentarios", borrarComentarios);
 router.put("/modificarNotas", modificarNotas);
 
 
-//module.exports = router;
+module.exports = router;

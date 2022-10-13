@@ -13,7 +13,7 @@ const MateriasSchema = new mongoose.Schema({
 
   notas: [
     {
-      alumno: {}, //!referenciar a la coleccion personas=>alumno
+      alumno: { type: mongoose.Schema.Types.ObjectId, ref: "personas" },
       parcial1: { type: String },
       parcial2: { type: String },
       recuperatorio1: { type: String },

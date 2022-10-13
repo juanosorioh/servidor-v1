@@ -2,15 +2,16 @@ const { Router } = require("express");
 const router = Router();
 
 const {
-  mostrarUsuariosTotales,
-  mostrarUsuariosActivos,
-  agregarUsuario,
-  modificarUsuario,
+  mostrarAlumnos,
+  mostrarMaterias,
+  mostrarNotas,
+  agregarComentarios,
 } = require("../controllers/userControllers");
 
-router.get("/activos", mostrarUsuariosActivos);
-router.get("/all", mostrarUsuariosTotales);
-router.post("/add", agregarUsuario);
+router.get("/mostrarAlumnos", mostrarAlumnos);
+router.get("/mostrarMaterias", mostrarMaterias);
+router.get("/mostrarNotas", mostrarNotas);
+router.post("/addComents", agregarComentarios);
 //router.put('/edit', modificarUsuario);
 //router.put('/delete', borrarUsuario);
 

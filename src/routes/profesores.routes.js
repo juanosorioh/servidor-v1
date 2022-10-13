@@ -1,14 +1,25 @@
-const { Router } = require('express');
+const { Router } = require("express");
 const router = Router();
 
-const {mostrarActivos, mostrarTodos} = require('../controllers/profesores.controllers')
+const {
+  mostrarAlumnos,
+  mostrarAnuncios,
+  crearAnuncios,
+  modificarAnuncios,
+  borrarAnuncios,
+  CrearComentarios,
+  borrarComentarios,
+} = require("../controllers/profesores.controllers");
 
-router.get('all',mostrarTodos)
-router.get('activos',mostrarActivos)
-router.post('comment')
-router.post('anuncio')
-router.post('notas')
-router.put('notas')
-router.put('anuncio')
+router.get("/mostrarAlumnos", mostrarAlumnos);
+router.get("/mostrarAnuncios", mostrarAnuncios);
+router.post("/crearAnuncios", crearAnuncios);
+router.put("/modificarAnuncios", modificarAnuncios);
+router.put("borrarAnuncios", borrarAnuncios);
+router.post("/CrearComentarios", CrearComentarios);
+router.put("/modificarComentarios", modificarComentarios);
+router.put("/borrarComentarios", borrarComentarios);
+router.put("/modificarNotas", modificarNotas);
+
 
 //module.exports = router;

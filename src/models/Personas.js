@@ -37,9 +37,7 @@ const PerfilSchema = new mongoose.Schema({
     {
       rol: [
       {
-          alumno: { type: Boolean, default: true },
-          profesor: { type: Boolean, default: false },
-          administrativo: { type: Boolean, default: false },
+          tipo:{type: String}
         },
       ],
       datosAlumnos: [
@@ -54,4 +52,4 @@ const PerfilSchema = new mongoose.Schema({
   activo: { type: Boolean, default: true }
 });
 
-module.exports = mongoose.model("Users", PerfilSchema);
+module.exports = mongoose.model("personas", PerfilSchema);

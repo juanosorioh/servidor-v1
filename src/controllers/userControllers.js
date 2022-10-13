@@ -1,9 +1,11 @@
-const User = require("../models/Personas");
-const ctrlUser = {};
+const Alumno = require("../models/Personas");
+const Materia = require("../models/Materias");
+const Anuncio = require("../models/Anuncios")
+const ctrlAlumno = {};
 
 //agregar un usuario //!controlador funcionando pero solo a modo de prueba ya que debe ir en los controladores de administrativos
 
-ctrlUser.agregarUsuario = async (req, res) => {
+/* ctrlUser.agregarUsuario = async (req, res) => {
 
 //todo: desestructuramos los datos
 
@@ -67,21 +69,38 @@ ctrlUser.agregarUsuario = async (req, res) => {
   await user.save();
   res.json({msg:"usuario agregado correctamente", user });
   return user;
-};
+}; */
 
-//mostrar usuarios activos
-ctrlUser.mostrarUsuariosActivos = async (req, res) => {
-  const user = await User.find({activo:true});
-  res.json({ user });
-  return user;
-};
-
-//mostrar usuarios totales 
-ctrlUser.mostrarUsuariosTotales = async (req, res) => {
+//!mostrar alumnos
+ctrlAlumno.mostrarAlumnos = async (req, res) => {
   try {
-    const user = await User.find();
-  res.json({ user });
-  return user;
+    const alumno = await Alumno.find({activo:true});
+    res.json({ alumno });
+    return alumno;  
+  } catch (error) {
+    console.log(error)
+  }
+  
+};
+
+//!mostrar materias
+ctrlAlumno.mostrarMaterias = async (req, res) => {
+  try {
+    const materia = await Materia.find({activo:true});
+    res.json({ materia });
+    return materia;  
+  } catch (error) {
+    console.log(error)
+  }
+  
+};
+
+//!mostrar notas
+ctrlAlumno.mostrarNotas = async (req, res) => {
+  try {
+    const nota = await Materia.notas.find()
+    res.json({nota})
+    return nota;  
   } catch (error) {
     console.log(error)
   }
@@ -89,8 +108,8 @@ ctrlUser.mostrarUsuariosTotales = async (req, res) => {
 };
 
 //!agregar comentarios
-ctrlUser.agregarComentario = async (req, res) => {
-  //
+ctrlAlumno.agregarComentarios = async (req, res) => {
+  const { comentarios } = req.body
 }
 
-module.exports = ctrlUser;
+module.exports = ctrlAlumno;

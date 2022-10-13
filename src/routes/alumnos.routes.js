@@ -6,7 +6,7 @@ const {
   mostrarMaterias,
   mostrarNotas,
   agregarComentarios,
-} = require("../controllers/userControllers");
+} = require("../controllers/alumnos.controllers");
 
 router.get("/mostrarAlumnos", mostrarAlumnos);
 router.get("/mostrarMaterias", mostrarMaterias);

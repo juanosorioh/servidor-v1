@@ -2,11 +2,9 @@
 
 -realizacion de las colecciones✅➡**03/10/22**
 
-*necesidad de generar referencias*
+-necesidad de generar referencias✅➡**13/10/22**
 
 -coneccion a bd✅➡**05/05/22**
-
-*necesidad de agrupar las rutas*❌➡ **0?/10/22**
 
 -creacion de las rutas de alumnos✅➡ **05/10/22**
 
@@ -17,7 +15,7 @@
 -unificacion de todas las rutas en una sola🚫➡ **0?/10/22**
 
 
--creacion de los controladores de alumnos- 
+# **-creacion de los controladores de alumnos-** 
 
 --mostrar alumnos✅➡ **06/10/22** 
 
@@ -28,7 +26,7 @@
 -- agregar comentarios⭕💥➡ **11/10/22** 
 
 
--creacion de los controladores de profesores
+# **-creacion de los controladores de profesores**
 
 --mostrar alumnos⭕➡ **06/10/22**  
 
@@ -45,7 +43,7 @@
 --borrar comentarios⭕➡ **12/10/22**  
 
 
--creacion de los controladores de administrativos
+# **-creacion de los controladores de administrativos**
 
 --mostrar Alumnos Activos⭕➡ **06/10/22**
 
@@ -91,7 +89,7 @@
 
 --borrar Anuncios⭕➡ **11/10/22**
 
--middlewares y helpers-
+# **-middlewares y helpers**
 
 --Validaciones controladores alumnos-❌👁‍🗨➡**0?/10/22** 
 

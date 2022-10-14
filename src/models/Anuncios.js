@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 
 const anunciosSchema = new mongoose.Schema({
-  autor: {}, //! refernciar a coleccion personas
+  autor: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
 
   fecha: { type: Date, required: true },
 
   anuncio: { type: String },
 
-  materias: [{}], //! referenciar a coleccion materias
+  materias: [{type: mongoose.Schema.Types.ObjectId, ref: "materias"}],
 
   comentarios: [
     {
-      autor: {}, //!referenciar a coleccion materias
+      autorComent: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
       comentario: { type: String },
-      fecha: { type: Date },
+      fechaComent: { type: Date },
     },
   ],
 });

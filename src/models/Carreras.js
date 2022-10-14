@@ -11,7 +11,7 @@ const carrerasSchema = new mongoose.Schema({
   },
   anio: { type: Date, required: true },
 
-  materias: [{}], //! refernciar a coleccion materias
+  materias: [{type: mongoose.Schema.Types.ObjectId, ref: "materias"}],
 
   activo: { type: Boolean, default: true },
 });

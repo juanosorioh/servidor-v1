@@ -3,80 +3,12 @@ const Materia = require("../models/Materias");
 const Anuncio = require("../models/Anuncios")
 const ctrlAlumno = {};
 
-//agregar un usuario //!controlador funcionando pero solo a modo de prueba ya que debe ir en los controladores de administrativos
-
-/* ctrlUser.agregarUsuario = async (req, res) => {
-
-//todo: desestructuramos los datos
-
-  const { 
-    email, 
-    password, 
-    nombre, 
-    apellido, 
-    birthdate, 
-    dni, 
-    telefono, 
-    perfiles:[
-      {
-        rol: [
-        {
-            alumno,
-            profesor,
-            administrativo
-          },
-        ],
-        datosAlumnos: [
-          {
-            carrera,
-            titulo
-          },
-        ],
-        datos: [{ datos }],
-      },
-    ]
-  } = req.body;
-  
-  //todo: creamos un nuevo usuario
-  
-  const user = new User({
-    email, 
-    password, 
-    nombre, 
-    apellido, 
-    birthdate, 
-    dni, 
-    telefono, 
-    perfiles:[
-      {
-        rol: [
-        {
-            alumno,
-            profesor,
-            administrativo
-          },
-        ],
-        datosAlumnos: [
-          {
-            carrera,
-            titulo
-          },
-        ],
-        datos: [{ datos }],
-      },
-    ]
-  });
-  await user.save();
-  res.json({msg:"usuario agregado correctamente", user });
-  return user;
-}; */
-
 //!mostrar alumnos
 ctrlAlumno.mostrarAlumnos = async (req, res) => {
   try {
-    const alumno = await Alumno.find({activo:true});
+    const alumno = await Alumno.find({activo:true, tipo:"alumno"});
     res.json({ alumno });
-    return alumno;  
+    return alumno;
   } catch (error) {
     console.log(error)
   }
@@ -98,7 +30,7 @@ ctrlAlumno.mostrarMaterias = async (req, res) => {
 //!mostrar notas
 ctrlAlumno.mostrarNotas = async (req, res) => {
   try {
-    const nota = await notas.find()
+    const nota = await Materia.find({notas:[]})
     res.json({nota})
     return nota;  
   } catch (error) {
@@ -109,13 +41,24 @@ ctrlAlumno.mostrarNotas = async (req, res) => {
 
 //!agregar comentarios
 ctrlAlumno.agregarComentarios = async (req, res) => {
-  const {fecha, autor, comentario} = req.body;
-  const {...resto} = req.body;
-  const newComment = new Anuncio(
-  )
-  await comment.save();
-  console.log(coment);
-  return comment;
+  try {
+    const { 
+     comentarios:[
+        {autorComent,
+        comentario,
+        fechaComent}
+      ] } = req.body;
+
+  const newComment = 
+      {autorComent,
+      comentario,
+      fechaComent}
+  await comentarios.push(newComment);
+  console.log({msg:"comentario agregado correctamente",newComment});
+  return newComment;
+  } catch (error) {
+    console.log("falló",error)
+  }
 }
 
 module.exports = ctrlAlumno;

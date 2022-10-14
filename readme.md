@@ -12,8 +12,6 @@
 
 -creacion de las rutas de administrativos✅➡ **10/10/22**
 
--unificacion de todas las rutas en una sola🚫➡ **0?/10/22**
-
 
 # **-creacion de los controladores de alumnos-** 
 
@@ -21,18 +19,18 @@
 
 --mostrar materias✅➡ **11/10/22** 
 
---mostrar notas⭕➡ **11/10/22** 
+--mostrar notas✅➡ **11/10/22** 
 
--- agregar comentarios⭕💥➡ **11/10/22** 
+-- agregar comentarios✅➡ **11/10/22** 
 
 
 # **-creacion de los controladores de profesores**
 
---mostrar alumnos⭕➡ **06/10/22**  
+--mostrar alumnos✅➡ **06/10/22**  
 
---mostrar anuncios⭕➡ **06/10/22**  
+--mostrar anuncios✅➡ **06/10/22**  
 
---crear anuncios⭕➡ **12/10/22**  
+--crear anuncios✅➡ **12/10/22**  
 
 --modificar anuncios⭕➡ **12/10/22**  
 
@@ -57,7 +55,7 @@
 
 --mostrar Administrativos Totales⭕➡ **10/10/22**
 
---agregar Alumnos⭕➡ **11/10/22**
+--agregar Alumnos✅➡ **11/10/22**
 
 --agregar Profesores⭕➡ **11/10/22**
 
@@ -91,14 +89,15 @@
 
 # **-middlewares y helpers**
 
---Validaciones controladores alumnos-❌👁‍🗨➡**0?/10/22** 
+--Validaciones alumnos-❌👁‍🗨➡**0?/10/22** 
 
---Validaciones controladores profesores-❌👁‍🗨➡**0?/10/22**
+--Validaciones profesores-❌👁‍🗨➡**0?/10/22**
 
---Validaciones controladores administrativos-❌👁‍🗨➡**0?/10/22**
+--Validaciones administrativos-❌👁‍🗨➡**0?/10/22**
 
 --generacion de JWT-❌👁‍🗨➡**0?/10/22**
 
+--definir cuales seran rutas privadas y cuales publicas-❌👁‍🗨➡**0?/10/22**
 
 
 ❌ ⭕ ✅ 👁‍🗨 💥 ❗ 🚫 ➡

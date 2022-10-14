@@ -15,14 +15,9 @@ app.use(cors())
 
 
 //routes
-//app.use(routes);
- //app.use('/', require('./src/routes/users.routes'))
-//app.get('/', (req, res = express.response) => res.send("Hola"))
 app.use('/alumnos', require('./src/routes/alumnos.routes'));
 app.use('/profesores', require('./src/routes/profesores.routes'));
-//app.use('/administrativos', require('./src/routes/administrativos.routes'));
-//app.use('p/', require('./src/routes/profesores.routes'));
-//app.use('a/', require('./src/routes/administrativos.routes'));
+app.use('/administrativos', require('./src/routes/administrativos.routes'));
 
 
 //start a server 

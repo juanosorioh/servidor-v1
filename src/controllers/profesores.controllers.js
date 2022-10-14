@@ -1,9 +1,10 @@
-const Alumnos = require("../models/Personas");
+const Alumno = require("../models/Personas");
+const Anuncio = require("../models/Anuncios")
 const ctrlProfesor = {};
 
 //mostrar los alumnos
 ctrlProfesor.mostrarAlumnos = async (req, res) =>{
-    const alumnos = await Alumnos.find({activo:true});
+    const alumnos = await Alumno.find({activo:true});
     res.json({alumnos});
     return alumnos;
 }
@@ -11,11 +12,30 @@ ctrlProfesor.mostrarAlumnos = async (req, res) =>{
 
 //!mostrar Anuncios
 ctrlProfesor.mostrarAnuncios = async (req, res) => {
-        
+        const anuncios = await Anuncio.find();
+        res.json({anuncios});
+        return anuncios;
 }
 
 //!crear Anuncios
 ctrlProfesor.crearAnuncios = async (req, res) => {
+        const {
+        autor,
+        fecha,
+        anuncio,
+        materias,
+        comentarios:[{}]
+    } = req.body;
+        const newAnuncio = new Anuncio({
+            autor,
+            fecha,
+            anuncio,
+            materias,
+            comentarios:[{}]
+        });
+        await newAnuncio.save();
+        res.json({msg:"anuncio creado",newAnuncio});
+        return newAnuncio;
         
 }
 

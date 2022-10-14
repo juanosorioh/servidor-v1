@@ -40,13 +40,12 @@ const PerfilSchema = new mongoose.Schema({
           tipo:{type: String}
         },
       ],
-      datosAlumnos: [
+      datosAlumno: [ 
         {
           carrera: { type: String },
           titulo: { type: String },
-        },
-      ],
-      datos: [{ datos: { type: String } }],
+        }],
+      datos: { datos: { type: String } }
     },
   ],
   activo: { type: Boolean, default: true }

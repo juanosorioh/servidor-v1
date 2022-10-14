@@ -24,7 +24,7 @@ const MateriasSchema = new mongoose.Schema({
     },
   ],
   asistencia: [
-    { fecha: { type: Date }, alumno: {} }, //!referenciar a la coleccion personas=>alumno
+    { fecha: { type: Date }, alumno: {type: mongoose.Schema.Types.ObjectId, ref: "personas"} }, 
   ],
   activo: { type: Boolean, default: true },
 });

@@ -41,22 +41,65 @@ ctrlProfesor.crearAnuncios = async (req, res) => {
 
 //!modificar Anuncios
 ctrlProfesor.modificarAnuncios = async (req, res) => {
-        
+        const {fecha, anuncio, materias} = req.body;
+        const { id } = req.params;
+      /*  for (let i = 0; i < materias.length; i++) {
+        const name = materias[i];
+        const objMateria = await Materia.find(name:name);
+
+        var array = [array, ...objMateria ] */
+       
+        try {
+            await Anuncio.findByIdAndUpdate(id,{fecha, anuncio, materias})
+        res.json({msg:"editado correctamente",Anuncio})
+        } catch (error) {
+            console.log("falló",error)
+        }
 }
 
 //!borrar Anuncios
 ctrlProfesor.borrarAnuncios = async (req, res) => {
-        
+        const { id } = req.params;
+        try {
+            await Anuncio.findByIdAndDelete(id);
+            res.json({msg:"anuncio eliminado correctamente"});
+        } catch (error) {
+            console.log(error);
+        }
+
 }
 
 //!Crear Comentarios
 ctrlProfesor.CrearComentarios = async (req, res) => {
-        
+        const {comentarios:[
+            autorComent,
+            comentario,
+            fechaComent
+        ]} = req.body;
+        const newComent = {
+            comentarios:[
+                autorComent,
+                comentario,
+                fechaComent
+            ]
+        }
+       try {
+        await Anuncio.comentarios.push(newComent);
+        res.json({msg:"comentario agregado correctamente", newComent});
+        return newComent;
+       } catch (error) {
+        console.log(error);
+       }
 }
 
 //!borrar Comentarios
 ctrlProfesor.borrarComentarios = async (req, res) => {
-        
+        const { id } = req.params;
+       try {
+        await Anuncio.comentarios.findByIdAndDelete(id);
+       } catch (error) {
+        console.log(error);
+       }
 }
 
 //!modificar Comentarios

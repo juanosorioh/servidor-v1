@@ -58,6 +58,12 @@
 
 --mostrar Administrativos Totales⭕➡ **10/10/22**
 
+--mostrar mostrarMaterias✅➡ **10/10/22**
+
+--mostrar mostrarCarreras⭕➡ **10/10/22**
+
+--mostrar mostrarAnuncios⭕➡ **10/10/22**
+
 --agregar Alumnos✅➡ **11/10/22**
 
 --agregar Profesores⭕➡ **11/10/22**
@@ -78,15 +84,15 @@
 
 --agregar Comentarios⭕➡ **11/10/22**
 
---modificar Comentarios⭕➡ **11/10/22**
+--agregar materias **11/10/22**
+
+--agregar carreras⭕➡ **11/10/22**
 
 --borrar Comentarios⭕➡ **11/10/22**
 
 --ver Anuncios⭕➡ **11/10/22**
 
 --agregar Anuncios⭕➡ **11/10/22**
-
---modificar Anuncios⭕➡ **11/10/22**
 
 --borrar Anuncios⭕➡ **11/10/22**
 

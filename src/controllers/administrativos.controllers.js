@@ -4,46 +4,16 @@ const Anuncio = require('../models/Anuncios');
 const Carrera = require('../models/Carreras')
 const ctrlAdministrativos = {};
 
-//borrar personas de manera logica
-/* ctrlAdministrativos.borrarPersonas = async (req, res)=>{
-   const { id } = req.params;
-   const datos = req.body;
-   const nuevaPersonas = {
-    email: datos.email, 
-    password: datos.password, 
-    nombre: datos.nombre, 
-    apellido: datos.apellido, 
-    birthdate: datos.birthdate, 
-    dni: datos.dni, 
-    telefono: datos.telefono, 
-    perfiles:[
-      {
-        rol: [
-        {
-            alumno: datos.alumno,
-            profesor: datos.profesor,
-            administrativo: datos.administrativo
-          },
-        ],
-        datosAlumnos: [
-          {
-            carrera: datos.carrera,
-            titulo: datos.titulo
-          },
-        ],
-        datos: [{ datos: datos.datos }],
-      },
-    ],
-    activo:false
-   }
-   Personas.findByIdAndUpdate(id, nuevaPersonas)
-   .then(result =>{ response.json({msg:"usuario modificado correctamente", result})})//res.json({msg:"usuario agregado correctamente", user });
-   .catch(err=>{"fallo la modificacion",err})
-} */
-
 
 ctrlAdministrativos.mostrarAlumnosActivos= async (req, res) => {
-        
+        try {
+          const alumnos = await Persona.find({activo:true});
+        res.json({alumnos});
+        return alumnos;
+        } catch (error) {
+          res.json(error);
+          console.log(error);
+        }
 }
 
 
@@ -71,6 +41,23 @@ ctrlAdministrativos.mostrarAdministrativosTotales= async (req, res) => {
         
 }
 
+ctrlAdministrativos.mostrarMaterias = async (req, res) =>{
+  try {
+    const materias = await Materia.find({activo:true});
+  res.json({materias});
+  return materias;
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
+}
+ctrlAdministrativos.mostrarCarreras = async (req, res) =>{
+
+}
+ctrlAdministrativos.mostrarAnuncios = async (req, res) =>{
+
+}
+
 
 
 ctrlAdministrativos.agregarCarreras= async (req, res) => {
@@ -85,17 +72,10 @@ ctrlAdministrativos.agregarMaterias= async (req, res) => {
         const newMateria = new Materia ({
           nombre: materia.nombre,
           descripcion: materia.descripcion,
-          profesores: [{}],
-        
-          notas: [
-            {}
-          ],
-          asistencia: [
-            {
-              fecha: materia.fecha,
-              alumno: materia.alumno,
-            },
-          ],
+          profesores: materia.profesores,
+          notas: materia.notas,
+          asistencia: materia.asistencia,
+          clasesDictadas: materia.clasesDictadas
         });
         await newMateria.save();
         res.json({msg:"materia agregada correctamente", newMateria });

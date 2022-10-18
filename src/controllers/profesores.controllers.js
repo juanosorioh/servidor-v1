@@ -39,17 +39,11 @@ ctrlProfesor.crearAnuncios = async (req, res) => {
         return newAnuncio;
         
 }
-
+/* 
 //!modificar Anuncios
 ctrlProfesor.modificarAnuncios = async (req, res) => {
         const {fecha, anuncio, materias} = req.body;
         const { id } = req.params;
-      /*  for (let i = 0; i < materias.length; i++) {
-        const name = materias[i];
-        const objMateria = await Materia.find(name:name);
-
-        var array = [array, ...objMateria ] */
-       
         try {
             await Anuncio.findByIdAndUpdate(id,{fecha, anuncio, materias})
         res.json({msg:"editado correctamente",Anuncio})
@@ -57,6 +51,9 @@ ctrlProfesor.modificarAnuncios = async (req, res) => {
             console.log("falló",error)
         }
 }
+ */
+
+
 
 //!borrar Anuncios
 ctrlProfesor.borrarAnuncios = async (req, res) => {

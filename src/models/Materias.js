@@ -9,7 +9,7 @@ const MateriasSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profesores: [{}],
+  profesores: [{type: mongoose.Schema.Types.ObjectId, ref: "personas"}],
 
   notas: [
     {
@@ -24,11 +24,11 @@ const MateriasSchema = new mongoose.Schema({
     },
   ],
   asistencia: [
-    {
-      fecha: { type: String },
+    { cantidadFaltas: {type: Number,default:0},
       alumno: { type: mongoose.Schema.Types.ObjectId, ref: "personas" },
     },
   ],
+  clasesDictadas: {type:Number},
   activo: { type: Boolean, default: true },
 });
 

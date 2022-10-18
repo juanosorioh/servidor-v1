@@ -8,6 +8,9 @@ const {
   mostrarProfesoresTotales,
   mostrarAdministrativosActivos,
   mostrarAdministrativosTotales,
+  mostrarMaterias,
+  mostrarCarreras,
+  mostrarAnuncios,
   agregarAlumnos,
   agregarProfesores,
   agregaradministrativos,
@@ -23,7 +26,6 @@ const {
   borrarComentarios,
   verAnuncios,
   agregarAnuncios,
-  modificarAnuncios,
   borrarAnuncios,
 } = require("../controllers/administrativos.controllers");
 
@@ -33,6 +35,9 @@ router.get("/mostrarProfesoresActivos", mostrarProfesoresActivos);
 router.get("/mostrarProfesoresTotales", mostrarProfesoresTotales);
 router.get("/mostrarAdministrativosActivos", mostrarAdministrativosActivos);
 router.get("/mostrarAdministrativosTotales", mostrarAdministrativosTotales);
+router.get("/mostrarMaterias", mostrarMaterias);
+router.get("/mostrarCarreras", mostrarCarreras);
+router.get("/mostrarAnuncios", mostrarAnuncios);
 router.post("/agregarAlumnos", agregarAlumnos);
 router.post("/agregarProfesores", agregarProfesores);
 router.post("/agregarMaterias", agregarMaterias);
@@ -48,7 +53,6 @@ router.post("/agregarComentarios", agregarComentarios);
 router.put("/borrarComentarios", borrarComentarios);
 router.get("/verAnuncios", verAnuncios);
 router.post("/agregarAnuncios", agregarAnuncios);
-router.put("/modificarAnuncios", modificarAnuncios);
 router.put("/borrarAnuncios", borrarAnuncios);
 
 module.exports = router;

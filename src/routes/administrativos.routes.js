@@ -11,6 +11,8 @@ const {
   agregarAlumnos,
   agregarProfesores,
   agregaradministrativos,
+  agregarMaterias,
+  agregarCarreras,
   modificarAlumnos,
   modificarProfesores,
   modificaradministrativos,
@@ -18,7 +20,6 @@ const {
   borrarProfesores,
   borraradministrativos,
   agregarComentarios,
-  modificarComentarios,
   borrarComentarios,
   verAnuncios,
   agregarAnuncios,
@@ -34,6 +35,8 @@ router.get("/mostrarAdministrativosActivos", mostrarAdministrativosActivos);
 router.get("/mostrarAdministrativosTotales", mostrarAdministrativosTotales);
 router.post("/agregarAlumnos", agregarAlumnos);
 router.post("/agregarProfesores", agregarProfesores);
+router.post("/agregarMaterias", agregarMaterias);
+router.post("/agregarCarreras", agregarCarreras);
 router.post("/agregaradministrativos", agregaradministrativos);
 router.put("/modificarAlumnos", modificarAlumnos);
 router.put("/modificarProfesores", modificarProfesores);
@@ -42,7 +45,6 @@ router.put("/borrarAlumnos", borrarAlumnos);
 router.put("/borrarProfesores", borrarProfesores);
 router.put("/borraradministrativos", borraradministrativos);
 router.post("/agregarComentarios", agregarComentarios);
-router.put("/modificarComentarios", modificarComentarios);
 router.put("/borrarComentarios", borrarComentarios);
 router.get("/verAnuncios", verAnuncios);
 router.post("/agregarAnuncios", agregarAnuncios);

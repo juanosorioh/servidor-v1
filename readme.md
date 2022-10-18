@@ -32,7 +32,7 @@
 
 --crear anuncios✅➡ **12/10/22**  
 
---modificar anuncios✅➡ **12/10/22**  
+//--modificar anuncios🚫➡ **12/10/22**  
 
 --borrar anuncios✅➡ **12/10/22**  
 
@@ -40,10 +40,7 @@
 
 --borrar comentarios✅➡ **12/10/22**  
 
---crear Comentarios⭕➡ **12/10/22**  
-
---borrar Notas⭕➡ **12/10/22**  
-
+--modificar notas✅➡ **12/10/22**  
 
 
 

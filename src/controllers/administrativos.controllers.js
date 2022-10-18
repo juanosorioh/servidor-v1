@@ -1,4 +1,7 @@
 const Persona = require('../models/Personas');
+const Materia = require('../models/Materias');
+const Anuncio = require('../models/Anuncios');
+const Carrera = require('../models/Carreras')
 const ctrlAdministrativos = {};
 
 //borrar personas de manera logica
@@ -66,6 +69,37 @@ ctrlAdministrativos.mostrarAdministrativosActivos= async (req, res) => {
 
 ctrlAdministrativos.mostrarAdministrativosTotales= async (req, res) => {
         
+}
+
+
+
+ctrlAdministrativos.agregarCarreras= async (req, res) => {
+        
+}
+
+
+
+
+ctrlAdministrativos.agregarMaterias= async (req, res) => {
+        const materia = req.body;
+        const newMateria = new Materia ({
+          nombre: materia.nombre,
+          descripcion: materia.descripcion,
+          profesores: [{}],
+        
+          notas: [
+            {}
+          ],
+          asistencia: [
+            {
+              fecha: materia.fecha,
+              alumno: materia.alumno,
+            },
+          ],
+        });
+        await newMateria.save();
+        res.json({msg:"materia agregada correctamente", newMateria });
+      return newMateria;
 }
 
 
@@ -177,11 +211,6 @@ ctrlAdministrativos.agregarComentarios= async (req, res) => {
 }
 
 
-ctrlAdministrativos.modificarComentarios= async (req, res) => {
-        
-}
-
-
 ctrlAdministrativos.borrarComentarios= async (req, res) => {
         
 }
@@ -193,11 +222,6 @@ ctrlAdministrativos.verAnuncios= async (req, res) => {
 
 
 ctrlAdministrativos.agregarAnuncios= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.modificarAnuncios= async (req, res) => {
         
 }
 

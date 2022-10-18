@@ -5,23 +5,21 @@ const {
   mostrarAlumnos,
   mostrarAnuncios,
   crearAnuncios,
-  modificarAnuncios,
+  //modificarAnuncios,
   borrarAnuncios,
   CrearComentarios,
   borrarComentarios,
-  modificarComentarios,
   modificarNotas
 } = require("../controllers/profesores.controllers");
 
 router.get("/mostrarAlumnos", mostrarAlumnos);
 router.get("/mostrarAnuncios", mostrarAnuncios);
 router.post("/crearAnuncios", crearAnuncios);
-router.put("/modificarAnuncios", modificarAnuncios);
+//router.put("/modificarAnuncios", modificarAnuncios);
 router.put("borrarAnuncios", borrarAnuncios);
 router.post("/CrearComentarios", CrearComentarios);
-router.put("/modificarComentarios", modificarComentarios);
 router.put("/borrarComentarios", borrarComentarios);
-router.put("/modificarNotas", modificarNotas);
+router.put("/modificarNotas:id", modificarNotas);
 
 
 module.exports = router;

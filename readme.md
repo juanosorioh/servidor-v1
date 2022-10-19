@@ -46,51 +46,55 @@
 
 # **-creacion de los controladores de administrativos**
 
---mostrar Alumnos Activos⭕➡ **06/10/22**
+--mostrar Alumnos Activos✅➡ **06/10/22**
 
---mostrar Alumnos Totales⭕➡ **06/10/22**
+--mostrar Alumnos Totales✅➡ **06/10/22**
 
---mostrar Profesores Activos⭕➡ **10/10/22**
+--mostrar Profesores Activos✅➡ **10/10/22**
 
---mostrar Profesores Totales⭕➡ **10/10/22**
+--mostrar Profesores Totales✅➡ **10/10/22**
 
---mostrar Administrativos Activos⭕➡ **10/10/22**
+--mostrar Administrativos Activos✅➡ **10/10/22**
 
---mostrar Administrativos Totales⭕➡ **10/10/22**
+--mostrar Administrativos Totales✅➡ **10/10/22**
 
 --mostrar mostrarMaterias✅➡ **10/10/22**
 
---mostrar mostrarCarreras⭕➡ **10/10/22**
+--mostrar mostrarCarreras✅➡ **10/10/22**
 
---mostrar mostrarAnuncios⭕➡ **10/10/22**
+--mostrar mostrarAnuncios✅➡ **10/10/22**
 
---agregar Alumnos✅➡ **11/10/22**
+--agregar Alumno✅🚫➡ **11/10/22**
 
---agregar Profesores⭕➡ **11/10/22**
+--agregar Profesor✅🚫➡ **11/10/22**
 
---agregar administrativos⭕➡ **11/10/22**
+--agregar administrativo✅🚫➡ **11/10/22**
 
---modificar Alumnos⭕➡ **11/10/22**
+--agregar usuario✅➡ **11/10/22**
 
---modificar Profesores⭕➡ **11/10/22**
+--modificar Alumno⭕🚫➡ **11/10/22**
 
---modificar administrativos⭕➡ **11/10/22**
+--modificar Profesor⭕🚫➡ **11/10/22**
 
---borrar Alumnos⭕➡ **11/10/22**
+--modificar administrativo⭕🚫➡ **11/10/22**
 
---borrar Profesores⭕➡ **11/10/22**
+--modificar usuario⭕➡ **11/10/22**
 
---borrar administrativos⭕➡ **11/10/22**
+--borrar Alumnos⭕🚫➡ **11/10/22**
 
---agregar Comentarios⭕➡ **11/10/22**
+--borrar Profesores⭕🚫➡ **11/10/22**
 
---agregar materias **11/10/22**
+--borrar administrativos⭕🚫➡ **11/10/22**
 
---agregar carreras⭕➡ **11/10/22**
+--borrar usuario⭕➡ **11/10/22**
 
---borrar Comentarios⭕➡ **11/10/22**
+--agregar Comentario⭕➡ **11/10/22**
 
---ver Anuncios⭕➡ **11/10/22**
+--agregar materias✅**11/10/22**
+
+--agregar carreras✅➡ **11/10/22**
+
+--borrar Comentario⭕➡ **11/10/22**
 
 --agregar Anuncios⭕➡ **11/10/22**
 

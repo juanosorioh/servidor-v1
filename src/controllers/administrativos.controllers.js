@@ -7,7 +7,7 @@ const ctrlAdministrativos = {};
 
 ctrlAdministrativos.mostrarAlumnosActivos= async (req, res) => {
         try {
-          const alumnos = await Persona.find({activo:true});
+          const alumnos = await Persona.find({perfiles : {$elemMatch : {rol:"alumno"} }, activo:true });
         res.json({alumnos});
         return alumnos;
         } catch (error) {
@@ -18,27 +18,62 @@ ctrlAdministrativos.mostrarAlumnosActivos= async (req, res) => {
 
 
 ctrlAdministrativos.mostrarAlumnosTotales= async (req, res) => {
-        
+  try {
+    const alumnos = await Persona.find({perfiles : {$elemMatch : {rol:"alumno"} } });
+  res.json({alumnos});
+  return alumnos;
+  } catch (error) {
+    res.json(error);
+    console.log(error);
+  }
 }
 
 
 ctrlAdministrativos.mostrarProfesoresActivos= async (req, res) => {
-        
+  try {
+    const profesores = await Persona.find({perfiles : {$elemMatch : {rol:"profesor"} }, activo:true });
+  res.json({profesores});
+  return profesores;
+  } catch (error) {
+    res.json(error);
+    console.log(error);
+  }
 }
 
 
 ctrlAdministrativos.mostrarProfesoresTotales= async (req, res) => {
-        
+  try {
+    const profesores = await Persona.find({perfiles : {$elemMatch : {rol:"profesor"} }});
+  res.json({profesores});
+  return profesores;
+  } catch (error) {
+    res.json(error);
+    console.log(error);
+  }
 }
 
 
 ctrlAdministrativos.mostrarAdministrativosActivos= async (req, res) => {
-        
+  try {
+    const administrativos = await Persona.find({perfiles : {$elemMatch : {rol:"administrativo"} }, activo:true });
+  res.json({administrativos});
+  return administrativos;
+  } catch (error) {
+    res.json(error);
+    console.log(error);
+  }
 }
 
 
 ctrlAdministrativos.mostrarAdministrativosTotales= async (req, res) => {
-        
+  try {
+    const administrativos = await Persona.find({perfiles : {$elemMatch : {rol:"administrativo"} }});
+  res.json({administrativos});
+  return administrativos;
+  } catch (error) {
+    res.json(error);
+    console.log(error);
+  }
 }
 
 ctrlAdministrativos.mostrarMaterias = async (req, res) =>{
@@ -52,22 +87,50 @@ ctrlAdministrativos.mostrarMaterias = async (req, res) =>{
   }
 }
 ctrlAdministrativos.mostrarCarreras = async (req, res) =>{
-
+  try {
+    const carreras = await Carrera.find({activo:true});
+    res.json({carreras});
+    return carreras;
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
 }
 ctrlAdministrativos.mostrarAnuncios = async (req, res) =>{
-
+  try {
+    const anuncios = await Anuncio.find({activo:true});
+    res.json({anuncios});
+    return anuncios;
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
 }
 
 
 
-ctrlAdministrativos.agregarCarreras= async (req, res) => {
-        
+ctrlAdministrativos.agregarCarrera= async (req, res) => {
+        const carrera = req.body;
+        const newCarrera = new Carrera ({
+          nombre: carrera.nombre,
+          descripcion: carrera.descripcion,
+          anio: carrera.anio,
+          materias: carrera.materias
+        });
+        try {
+          await newCarrera.save();
+        res.json({msg:"carrera agregada correctamente"}, newCarrera);
+        return newCarrera;
+        } catch (error) {
+          console.log(error);
+          res.json({error});
+        }
 }
 
 
 
 
-ctrlAdministrativos.agregarMaterias= async (req, res) => {
+ctrlAdministrativos.agregarMateria= async (req, res) => {
         const materia = req.body;
         const newMateria = new Materia ({
           nombre: materia.nombre,
@@ -83,130 +146,50 @@ ctrlAdministrativos.agregarMaterias= async (req, res) => {
 }
 
 
-ctrlAdministrativos.agregarAlumnos= async (req, res) => {
+ctrlAdministrativos.agregarUsuario= async (req, res) => {
   
-    //todo: desestructuramos los datos
-    
-      const { 
-        email, 
-        password, 
-        nombre, 
-        apellido, 
-        birthdate, 
-        dni, 
-        telefono, 
-        perfiles:[
-          {
-            rol: [
-            {
-                tipo
-              },
-            ],
-            datosAlumno: [
-              {
-                carrera,
-                titulo
-              } ],
-            datos: { datos },
-          },
-        ]
-      }  = req.body;
-      
-      //todo: creamos un nuevo alumno
-      
+      const alumno = req.body;
       const nAlumno = new Persona({
-
-      //todo funcional pero muy molesto
-      email,
-        password,
-        nombre,
-        apellido,
-        birthdate,
-        dni,
-        telefono,
-        perfiles:[
-          {
-            rol: [
-            {
-                tipo:"alumno"
-              },
-            ],
-            datosAlumno: [
-              {
-                carrera,
-                titulo,
-              } ],
-            datos: { datos }
-          },
-        ]
-      });
+        nombre: alumno.nombre,
+        apellido: alumno.apellido,
+        email: alumno.email,
+        password: alumno.password,
+        birthdate: alumno.birthdate,
+        dni: alumno.dni,
+        telefono: alumno.telefono,
+        perfiles: alumno.perfiles
+      })
       await nAlumno.save();
       res.json({msg:"usuario agregado correctamente", nAlumno });
       return nAlumno;
     };
 
-
-ctrlAdministrativos.agregarProfesores= async (req, res) => {
+ctrlAdministrativos.modificarUsuario= async (req, res) => {
         
 }
 
 
-ctrlAdministrativos.agregaradministrativos= async (req, res) => {
+ctrlAdministrativos.borrarUsuario= async (req, res) => {
         
 }
 
 
-ctrlAdministrativos.modificarAlumnos= async (req, res) => {
+ctrlAdministrativos.agregarComentario= async (req, res) => {
         
 }
 
 
-ctrlAdministrativos.modificarProfesores= async (req, res) => {
+ctrlAdministrativos.borrarComentario= async (req, res) => {
         
 }
 
 
-ctrlAdministrativos.modificaradministrativos= async (req, res) => {
+ctrlAdministrativos.agregarAnuncio= async (req, res) => {
         
 }
 
 
-ctrlAdministrativos.borrarAlumnos= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.borrarProfesores= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.borraradministrativos= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.agregarComentarios= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.borrarComentarios= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.verAnuncios= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.agregarAnuncios= async (req, res) => {
-        
-}
-
-
-ctrlAdministrativos.borrarAnuncios= async (req, res) => {
+ctrlAdministrativos.borrarAnuncio= async (req, res) => {
         
 }
 

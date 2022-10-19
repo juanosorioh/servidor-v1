@@ -35,20 +35,15 @@ const PerfilSchema = new mongoose.Schema({
   },
   perfiles: [
     {
-      rol: [
-      {
-          tipo:{type: String}
-        },
-      ],
-      datosAlumno: [ 
-        {
-          carrera: { type: String },
-          titulo: { type: String },
-        }],
-      datos: { datos: { type: String } }
-    },
+      rol: { type: String, default:"alumno"},
+      datosAlumno: {
+        carrera: { type: String },
+        titulo: { type: String },
+      },
+      datos: { type: String },
+    }
   ],
-  activo: { type: Boolean, default: true }
+  activo: { type: Boolean, default: true },
 });
 
 module.exports = mongoose.model("personas", PerfilSchema);

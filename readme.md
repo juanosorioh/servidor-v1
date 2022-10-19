@@ -64,13 +64,17 @@
 
 --mostrar mostrarAnuncios✅➡ **10/10/22**
 
+--agregar usuario✅➡ **11/10/22**
+
+--agregar materias✅**11/10/22**
+
+--agregar carreras✅➡ **11/10/22**
+
 --agregar Alumno✅🚫➡ **11/10/22**
 
 --agregar Profesor✅🚫➡ **11/10/22**
 
 --agregar administrativo✅🚫➡ **11/10/22**
-
---agregar usuario✅➡ **11/10/22**
 
 --modificar Alumno⭕🚫➡ **11/10/22**
 
@@ -78,27 +82,23 @@
 
 --modificar administrativo⭕🚫➡ **11/10/22**
 
---modificar usuario⭕➡ **11/10/22**
-
 --borrar Alumnos⭕🚫➡ **11/10/22**
 
 --borrar Profesores⭕🚫➡ **11/10/22**
 
 --borrar administrativos⭕🚫➡ **11/10/22**
 
+--modificar usuario⭕➡ **11/10/22**
+
 --borrar usuario⭕➡ **11/10/22**
 
 --agregar Comentario⭕➡ **11/10/22**
 
---agregar materias✅**11/10/22**
-
---agregar carreras✅➡ **11/10/22**
-
 --borrar Comentario⭕➡ **11/10/22**
 
---agregar Anuncios⭕➡ **11/10/22**
+--agregar Anuncio✅➡ **11/10/22**
 
---borrar Anuncios⭕➡ **11/10/22**
+--borrar Anuncio⭕➡ **11/10/22**
 
 # **-middlewares y helpers**
 

@@ -5,7 +5,6 @@ const {
   mostrarAlumnos,
   mostrarAnuncios,
   crearAnuncios,
-  //modificarAnuncios,
   borrarAnuncios,
   CrearComentarios,
   borrarComentarios,
@@ -15,9 +14,8 @@ const {
 router.get("/mostrarAlumnos", mostrarAlumnos);
 router.get("/mostrarAnuncios", mostrarAnuncios);
 router.post("/crearAnuncios", crearAnuncios);
-//router.put("/modificarAnuncios", modificarAnuncios);
 router.put("borrarAnuncios", borrarAnuncios);
-router.post("/CrearComentarios", CrearComentarios);
+router.post("/CrearComentarios/:id", CrearComentarios);
 router.put("/borrarComentarios", borrarComentarios);
 router.put("/modificarNotas:id", modificarNotas);
 

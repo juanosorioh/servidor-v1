@@ -175,7 +175,6 @@ ctrlAdministrativos.agregarUsuario = async (req, res) => {
   res.json(error);
  }
 };
-//todo----------------------------------------------------------
 
 ctrlAdministrativos.modificarUsuario = async (req, res) => {
   const { id } = req.params;
@@ -202,17 +201,23 @@ ctrlAdministrativos.modificarUsuario = async (req, res) => {
   }
 };
 
-//todo----------------------------------------------------------
 
-ctrlAdministrativos.borrarUsuario = async (req, res) => {};
-
-//! en proceso
-ctrlAdministrativos.agregarComentario = async (req, res) => {
-  const {comentarios, ...restoAnuncio} = req.body;
+ctrlAdministrativos.borrarUsuario = async (req, res) => {
   const { id } = req.params;
+  const actualizacion = req.body;
+  try {
+    const usuarioBorrado = await Persona.findByIdAndUpdate(
+      id,
+      {activo: actualizacion.activo},
+      {new : true}
+    );
+    res.json({msg:"usuario borrado correctamente", usuarioBorrado});
+    return usuarioBorrado;
+  } catch (error) {
+    res.json({msg:"error al borrar usuario",error});
+    console.log(error);
+  }
 };
-
-ctrlAdministrativos.borrarComentario = async (req, res) => {};
 
 ctrlAdministrativos.agregarAnuncio = async (req, res) => {
   const anuncio = req.body;
@@ -233,6 +238,82 @@ ctrlAdministrativos.agregarAnuncio = async (req, res) => {
 
 };
 
-ctrlAdministrativos.borrarAnuncio = async (req, res) => {};
+ctrlAdministrativos.borrarAnuncio = async (req, res) => {
+  const { id } = req.params;
+  const actualizacion = req.body;
+  try {
+    const anuncioBorrado = await Anuncio.findByIdAndUpdate(
+      id, {
+        activo: actualizacion.activo
+      },
+      {new : true}
+    );
+    res.json({msg:"anuncio eliminado correctamente", anuncioBorrado});
+    return anuncioBorrado;
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  }
+
+};
+
+ctrlAdministrativos.borrarCarrera = async (req, res) => {
+  const { id } = req.params;
+  const actualizacion = req.body;
+  try {
+    const carreraBorrada = await Carrera.findByIdAndUpdate(
+      id, {
+        activo: actualizacion.activo
+      },
+      {new : true}
+    );
+    res.json({msg:"carrera eliminada correctamente", carreraBorrada});
+    return carreraBorrada;
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  }
+};
+
+ctrlAdministrativos.borrarMateria = async (req, res) => {
+  const { id } = req.params;
+  const actualizacion = req.body;
+  try {
+    const materiaBorrada = await Materia.findByIdAndUpdate(
+      id, {
+        activo: actualizacion.activo
+      },
+      {new : true}
+    );
+    res.json({msg:"materia eliminada correctamente", materiaBorrada});
+    return materiaBorrada;
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  }
+};
+
+//!problemas
+ctrlAdministrativos.agregarComentario = async (req, res) => {
+  const {id} =req.params;
+  const {comentarios} = req.body;
+  try {
+    const nComentario = await Anuncio.findById(id, 
+      {
+        autorComent: comentarios.autorComent,
+      comentario: comentarios.comentario,
+      fechaComent: comentarios.fechaComent,
+      })
+      res.json({msg:"comentario eliminado correctamente", nComentario});
+    return nComentario;
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  } 
+};
+
+//!problemas
+ctrlAdministrativos.borrarComentario = async (req, res) => {};
+
 
 module.exports = ctrlAdministrativos;

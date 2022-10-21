@@ -1,80 +1,74 @@
-const Alumno = require("../models/Personas");
+const Persona = require("../models/Personas");
 const Anuncio = require("../models/Anuncios");
 const Materias = require("../models/Materias");
 const ctrlProfesor = {};
 
 //mostrar los alumnos
 ctrlProfesor.mostrarAlumnos = async (req, res) => {
-  const alumnos = await Alumno.find({ activo: true });
+  const alumnos = await Persona.find({
+    perfiles: { $elemMatch: { rol: "alumno" } },
+    activo: true,
+  });
   res.json({ alumnos });
   return alumnos;
 };
 
 //!mostrar Anuncios
 ctrlProfesor.mostrarAnuncios = async (req, res) => {
-  const anuncios = await Anuncio.find();
+  try {
+    const anuncios = await Anuncio.find({activo:true});
   res.json({ anuncios });
   return anuncios;
+  } catch (error) {
+    res.json({msg:"error"});
+    console.log(error);
+  }
 };
 
 //!crear Anuncios
 ctrlProfesor.crearAnuncios = async (req, res) => {
-  const {
-    autor,
-    fecha,
-    anuncio,
-    materias,
-    comentarios: [{}],
-  } = req.body;
+  const datos = req.body;
   const newAnuncio = new Anuncio({
-    autor,
-    fecha,
-    anuncio,
-    materias,
-    comentarios: [{}],
+    autor: datos.autor,
+    fecha: datos.fecha,
+    anuncio: datos.anuncio,
+    materias: datos.materias,
+    comentarios: datos.comentarios
   });
-  await newAnuncio.save();
+  try {
+    await newAnuncio.save();
   res.json({ msg: "anuncio creado", newAnuncio });
   return newAnuncio;
+  } catch (error) {
+    res.json({msg:"error"});
+    console.log(error);
+  }
 };
 
 //!borrar Anuncios
 ctrlProfesor.borrarAnuncios = async (req, res) => {
   const { id } = req.params;
+  const actualizacion = req.body;
   try {
-    await Anuncio.findByIdAndDelete(id);
-    res.json({ msg: "anuncio eliminado correctamente" });
+    const anuncioBorrado = await Anuncio.findByIdAndUpdate(
+      id, {
+        activo: actualizacion.activo
+      },
+      {new : true}
+    );
+    res.json({msg:"anucio eliminado correctamente", anuncioBorrado});
+    return anuncioBorrado;
   } catch (error) {
+    res.json({msg:"ocurrio un error",error});
     console.log(error);
   }
 };
 
 //!Crear Comentarios
-ctrlProfesor.CrearComentarios = async (req, res) => {
-  const {
-    comentarios: [autorComent, comentario, fechaComent],
-  } = req.body;
-  const newComent = {
-    comentarios: [autorComent, comentario, fechaComent],
-  };
-  try {
-    await Anuncio.comentarios.push(newComent);
-    res.json({ msg: "comentario agregado correctamente", newComent });
-    return newComent;
-  } catch (error) {
-    console.log(error);
-  }
-};
+ctrlProfesor.CrearComentarios = async (req, res) => {};
 
 //!borrar Comentarios
-ctrlProfesor.borrarComentarios = async (req, res) => {
-  const { id } = req.params;
-  try {
-    await Anuncio.comentarios.findByIdAndDelete(id);
-  } catch (error) {
-    console.log(error);
-  }
-};
+ctrlProfesor.borrarComentarios = async (req, res) => {}
 
 //!modificar Notas
 ctrlProfesor.modificarNotas = async (req, res) => {

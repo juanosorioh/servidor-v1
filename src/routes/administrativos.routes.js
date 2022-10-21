@@ -20,6 +20,8 @@ const {
   borrarComentario,
   agregarAnuncio,
   borrarAnuncio,
+  borrarCarrera,
+  borrarMateria
 } = require("../controllers/administrativos.controllers");
 
 router.get("/mostrarAlumnosActivos", mostrarAlumnosActivos);
@@ -34,11 +36,13 @@ router.get("/mostrarAnuncios", mostrarAnuncios);
 router.post("/agregarUsuario", agregarUsuario);
 router.post("/agregarMateria", agregarMateria);
 router.post("/agregarCarrera", agregarCarrera);
-router.put("/modificarUsuario:id", modificarUsuario);
-router.put("/borrarUsuario:id", borrarUsuario);
-router.post("/agregarComentario", agregarComentario);
-router.put("/borrarComentario:id", borrarComentario);
+router.put("/modificarUsuario/:id", modificarUsuario);
+router.put("/borrarUsuario/:id", borrarUsuario);
+router.post("/agregarComentario/:id", agregarComentario);
+router.put("/borrarComentario/:id", borrarComentario);
 router.post("/agregarAnuncio", agregarAnuncio);
-router.put("/borrarAnuncio:id", borrarAnuncio);
+router.put("/borrarAnuncio/:id", borrarAnuncio);
+router.put("/borrarCarrera/:id", borrarCarrera);
+router.put("/borrarMateria/:id", borrarMateria);
 
 module.exports = router;

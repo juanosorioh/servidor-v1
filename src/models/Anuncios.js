@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const anunciosSchema = new mongoose.Schema({
   autor: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
 
-  fecha: { type: Date, required: true },
+  fecha: { type: String},
 
   anuncio: { type: String },
 
@@ -13,9 +13,10 @@ const anunciosSchema = new mongoose.Schema({
     {
       autorComent: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
       comentario: { type: String },
-      fechaComent: { type: Date },
+      fechaComent: { type: String },
     },
   ],
+  activo:{type: Boolean, default:true}
 });
 
 module.exports = Anuncios = mongoose.model("anuncios", anunciosSchema);

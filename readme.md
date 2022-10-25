@@ -18,26 +18,22 @@
 
 --mostrar materias✅➡ **11/10/22** 
 
---mostrar anuncios✅➡ **11/10/22** 
+--mostrar anuncios✅➡ **11/10/22**  
 
---mostrar notas⭕💥➡ **11/10/22** 
-
--- agregar comentarios⭕💥➡ **11/10/22** 
+-- agregar comentarios✅➡ **11/10/22** 
 
 
 # **-creacion de los controladores de profesores**
 
 --mostrar alumnos✅➡ **06/10/22**  
 
---mostrar anuncios✅➡ **06/10/22**  
-
---mostrar comentarios⭕💥➡ **06/10/22**  
+--mostrar anuncios✅➡ **06/10/22**   
 
 --crear anuncios✅➡ **12/10/22**  
 
 --borrar anuncios✅➡ **12/10/22**  
 
---crear comentarios⭕💥➡ **12/10/22**  
+--crear comentarios✅➡ **12/10/22**  
 
 --borrar comentarios⭕💥➡ **12/10/22**  
 
@@ -59,11 +55,11 @@
 
 --mostrar Administrativos Totales✅➡ **10/10/22**
 
---mostrar mostrarMaterias✅➡ **10/10/22**
+--mostrar Materias✅➡ **10/10/22**
 
---mostrar mostrarCarreras✅➡ **10/10/22**
+--mostrar Carreras✅➡ **10/10/22**
 
---mostrar mostrarAnuncios✅➡ **10/10/22**
+--mostrar Anuncios✅➡ **10/10/22**
 
 --agregar usuario✅➡ **11/10/22**
 
@@ -83,9 +79,9 @@
 
 --borrar materia✅➡ **11/10/22**
 
---agregar Comentario⭕💥➡ **11/10/22**
+--agregar Comentario✅➡ **11/10/22**
 
---borrar Comentario⭕💥➡ **11/10/22**
+--borrar Comentario✅➡ **11/10/22**
 
 # **-middlewares y helpers**
 

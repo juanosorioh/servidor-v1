@@ -13,7 +13,7 @@ ctrlProfesor.mostrarAlumnos = async (req, res) => {
   return alumnos;
 };
 
-//!mostrar Anuncios
+//mostrar Anuncios
 ctrlProfesor.mostrarAnuncios = async (req, res) => {
   try {
     const anuncios = await Anuncio.find({activo:true});
@@ -25,7 +25,7 @@ ctrlProfesor.mostrarAnuncios = async (req, res) => {
   }
 };
 
-//!crear Anuncios
+//crear Anuncios
 ctrlProfesor.crearAnuncios = async (req, res) => {
   const datos = req.body;
   const newAnuncio = new Anuncio({
@@ -45,7 +45,7 @@ ctrlProfesor.crearAnuncios = async (req, res) => {
   }
 };
 
-//!borrar Anuncios
+//borrar Anuncios
 ctrlProfesor.borrarAnuncios = async (req, res) => {
   const { id } = req.params;
   const actualizacion = req.body;
@@ -64,13 +64,40 @@ ctrlProfesor.borrarAnuncios = async (req, res) => {
   }
 };
 
-//!Crear Comentarios
-ctrlProfesor.CrearComentarios = async (req, res) => {};
+//Crear Comentarios
+ctrlProfesor.CrearComentarios = async (req, res) => {
+  const {id} = req.params;
+  const {comentarios} = req.body;
+  try {
+    const nComentario = await Anuncio.findOneAndUpdate({id},{
+      $push:
+      {comentarios}
+    },
+    {new : true});
+    return res.json({nComentario});
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  }
+};
 
 //!borrar Comentarios
-ctrlProfesor.borrarComentarios = async (req, res) => {}
+ctrlProfesor.borrarComentarios = async (req, res) => {
+  const {id} = req.params;
+  const {_id} = req.body;
+  try {
+    const bComentario = await Anuncio.findOneAndUpdate(
+      {id, "comentarios._id":_id}, {$set:{"comentarios.activo":false}},
+      {new:true}
+    );
+    return res.json({msg:"comentario borrado",bComentario});
+  } catch (error) {
+    res.json({msg:"ocurrio un error",error});
+    console.log(error);
+  }
+}
 
-//!modificar Notas
+//modificar Notas
 ctrlProfesor.modificarNotas = async (req, res) => {
   const { id } = req.params;
   const { alumno, ...notas } = req.body;

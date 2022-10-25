@@ -7,22 +7,46 @@ const ctrlAlumno = {};
 ctrlAlumno.mostrarMaterias = async (req, res) => {
   try {
     const materia = await Materia.find({activo:true});
-    res.json({ materia });
-    return materia;  
+    return res.json({ materia });
   } catch (error) {
-    res.json({msg:"error"})
-    console.log(error)
+    console.log(error);
+    return res.json({msg:"error"});
   }
   
 };
 
 //!mostrar notas
-ctrlAlumno.mostrarNotas = async (req, res) => {};
+ctrlAlumno.mostrarNotas = async (req, res) => {
+  
+};
 
 //!mostrar anuncios
-ctrlAlumno.mostrarAnuncios = async (req, res) => {};
+ctrlAlumno.mostrarAnuncios = async (req, res) => {
+  try {
+    const anuncios = await Anuncio.find({activo:true});
+  res.json({ anuncios });
+  return anuncios;
+  } catch (error) {
+    res.json({msg:"error"});
+    console.log(error);
+  }
+};
 
 //!agregar comentarios
-ctrlAlumno.agregarComentarios = async (req, res) => {}
+ctrlAlumno.agregarComentarios = async (req, res) => {
+  const {id} = req.params;
+  const {comentarios} = req.body;
+  try {
+    const nComentario = await Anuncio.findOneAndUpdate({id},{
+      $push:{
+        comentarios
+      }
+    },
+    {new : true});
+    return res.json({nComentario});
+  } catch (error) {
+    
+  }
+}
 
 module.exports = ctrlAlumno;

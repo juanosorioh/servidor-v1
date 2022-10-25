@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const router = Router();
+const validarJWT = require('../middlewares/validarJWT')
 
 const {
   mostrarAlumnosActivos,
@@ -21,7 +22,9 @@ const {
   agregarAnuncio,
   borrarAnuncio,
   borrarCarrera,
-  borrarMateria
+  borrarMateria,
+  mostrarDatosLogueado
+  //mostrarComentarios
 } = require("../controllers/administrativos.controllers");
 
 router.get("/mostrarAlumnosActivos", mostrarAlumnosActivos);
@@ -44,5 +47,7 @@ router.post("/agregarAnuncio", agregarAnuncio);
 router.put("/borrarAnuncio/:id", borrarAnuncio);
 router.put("/borrarCarrera/:id", borrarCarrera);
 router.put("/borrarMateria/:id", borrarMateria);
+router.get("/mostrarDatosLogueado", validarJWT, mostrarDatosLogueado)
+//router.get("/mostrarComentarios", mostrarComentarios);
 
 module.exports = router;

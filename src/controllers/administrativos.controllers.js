@@ -2,6 +2,7 @@ const Persona = require("../models/Personas");
 const Materia = require("../models/Materias");
 const Anuncio = require("../models/Anuncios");
 const Carrera = require("../models/Carreras");
+const {encriptarPassword} = require("../helpers/password")
 const ctrlAdministrativos = {};
 
 ctrlAdministrativos.mostrarAlumnosActivos = async (req, res) => {
@@ -13,7 +14,7 @@ ctrlAdministrativos.mostrarAlumnosActivos = async (req, res) => {
     res.json({ alumnos });
     return alumnos;
   } catch (error) {
-    res.json(error);
+    res.json({msg:"fallo",error});
     console.log(error);
   }
 };
@@ -107,7 +108,7 @@ ctrlAdministrativos.mostrarCarreras = async (req, res) => {
 };
 ctrlAdministrativos.mostrarAnuncios = async (req, res) => {
   try {
-    const anuncios = await Anuncio.find({ activo: true });
+    const anuncios = await Anuncio.find({ activo: true }).populate("autor", ["nombre", "apellido"]);
     res.json({ anuncios });
     return anuncios;
   } catch (error) {
@@ -156,11 +157,12 @@ ctrlAdministrativos.agregarMateria = async (req, res) => {
 
 ctrlAdministrativos.agregarUsuario = async (req, res) => {
   const alumno = req.body;
+  const passwordEncriptada = encriptarPassword(alumno.password);
   const nAlumno = new Persona({
     nombre: alumno.nombre,
     apellido: alumno.apellido,
     email: alumno.email,
-    password: alumno.password,
+    password: passwordEncriptada,
     birthdate: alumno.birthdate,
     dni: alumno.dni,
     telefono: alumno.telefono,
@@ -293,27 +295,46 @@ ctrlAdministrativos.borrarMateria = async (req, res) => {
   }
 };
 
-//!problemas
+//agregar comentario
 ctrlAdministrativos.agregarComentario = async (req, res) => {
-  const {id} =req.params;
-  const {comentarios} = req.body;
   try {
-    const nComentario = await Anuncio.findById(id, 
-      {
-        autorComent: comentarios.autorComent,
-      comentario: comentarios.comentario,
-      fechaComent: comentarios.fechaComent,
-      })
-      res.json({msg:"comentario eliminado correctamente", nComentario});
-    return nComentario;
+    const {id} = req.params;
+    const {comentarios} = req.body;
+    const nComentario =  await Anuncio.findOneAndUpdate(
+      {id},
+      {$push:
+      {comentarios},
+      },
+      {new : true}
+    )
+    return res.json({nComentario});
   } catch (error) {
     res.json({msg:"ocurrio un error",error});
     console.log(error);
   } 
 };
 
-//!problemas
-ctrlAdministrativos.borrarComentario = async (req, res) => {};
+//borrar comentario
+ctrlAdministrativos.borrarComentario = async (req, res) => {
+  const {id} = req.params;
+  const {_id} = req.body;
+  try {
+    const bComentario = await Anuncio.findOneAndUpdate(
+      {id, "comentarios._id":_id},
+      {$set:
+        {"comentarios.$.activo":false}
+      },
+      {new : true})
+      return res.json({bComentario}
+)
+  } catch (error) {
+    console.log(error);
+    return res.json({msg:"ocurrio un error",error});
+  }
+};
 
+ctrlAdministrativos.mostrarDatosLogueado = async (req, res)  => {
+  return res.json({usuario : req.user});
+}
 
 module.exports = ctrlAdministrativos;

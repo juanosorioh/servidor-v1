@@ -14,6 +14,7 @@ const anunciosSchema = new mongoose.Schema({
       autorComent: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
       comentario: { type: String },
       fechaComent: { type: String },
+      activo:{type: Boolean, default:true}
     },
   ],
   activo:{type: Boolean, default:true}

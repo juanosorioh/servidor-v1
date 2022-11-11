@@ -23,11 +23,13 @@ const {
   borrarAnuncio,
   borrarCarrera,
   borrarMateria,
-  mostrarDatosLogueado
+  mostrarDatosLogueado,
+  mostrarUsuariosActivos
   //mostrarComentarios
 } = require("../controllers/administrativos.controllers");
 
 router.get("/mostrarAlumnosActivos", mostrarAlumnosActivos);
+router.get("/mostrarUsuariosActivos", mostrarUsuariosActivos);
 router.get("/mostrarAlumnosTotales", mostrarAlumnosTotales);
 router.get("/mostrarProfesoresActivos", mostrarProfesoresActivos);
 router.get("/mostrarProfesoresTotales", mostrarProfesoresTotales);
@@ -47,7 +49,7 @@ router.post("/agregarAnuncio", agregarAnuncio);
 router.put("/borrarAnuncio/:id", borrarAnuncio);
 router.put("/borrarCarrera/:id", borrarCarrera);
 router.put("/borrarMateria/:id", borrarMateria);
-router.get("/mostrarDatosLogueado", validarJWT, mostrarDatosLogueado)
+router.get("/mostrarDatosLogueado", mostrarDatosLogueado)
 //router.get("/mostrarComentarios", mostrarComentarios);
 
 module.exports = router;

@@ -4,6 +4,8 @@ const app = express();
 const morgan = require('morgan');
 const cors = require('cors')
 require("./database");
+const validarJWT = require("./src/middlewares/validarJWT")
+const validarUsuario = require("./src/middlewares/validarUsuarios")
 
 //setings
 app.set("port", process.env.PORT || 3000);
@@ -16,9 +18,9 @@ app.use(cors())
 
 
 //routes
-app.use('/alumnos', require('./src/routes/alumnos.routes'));
-app.use('/profesores', require('./src/routes/profesores.routes'));
-app.use('/administrativos', require('./src/routes/administrativos.routes'));
+app.use('/alumnos', validarJWT, require('./src/routes/alumnos.routes'));
+app.use('/profesores', validarJWT, require('./src/routes/profesores.routes'));
+app.use('/administrativos', validarJWT, validarUsuario, require('./src/routes/administrativos.routes'));
 app.use('/auth', require('./src/routes/auth.routes'))
 
 //start a server 

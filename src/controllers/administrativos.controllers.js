@@ -5,14 +5,23 @@ const Carrera = require("../models/Carreras");
 const {encriptarPassword} = require("../helpers/password")
 const ctrlAdministrativos = {};
 
+ctrlAdministrativos.mostrarUsuariosActivos = async (req, res) => {
+  try {
+    const usuarios = await Persona.find();
+    return res.json({ usuarios});
+  } catch (error) {
+    res.json({msg:"fallo",error});
+    console.log(error);
+  }
+};
+
 ctrlAdministrativos.mostrarAlumnosActivos = async (req, res) => {
   try {
     const alumnos = await Persona.find({
       perfiles: { $elemMatch: { rol: "alumno" } },
-      activo: true,
+      activo: true
     });
-    res.json({ alumnos });
-    return alumnos;
+    return res.json({ alumnos});
   } catch (error) {
     res.json({msg:"fallo",error});
     console.log(error);
@@ -336,5 +345,7 @@ ctrlAdministrativos.borrarComentario = async (req, res) => {
 ctrlAdministrativos.mostrarDatosLogueado = async (req, res)  => {
   return res.json({usuario : req.user});
 }
+
+
 
 module.exports = ctrlAdministrativos;

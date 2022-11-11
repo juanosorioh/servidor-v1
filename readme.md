@@ -91,12 +91,12 @@
 
 --Validaciones administrativos-❌👁‍🗨➡**0?/10/22**
 
---generacion de JWT-❌👁‍🗨➡**0?/10/22**
+--generacion de JWT-✅➡**23/10/22**
 
---definir cuales seran rutas privadas y cuales publicas-❌👁‍🗨➡**0?/10/22**
+--definir cuales seran rutas privadas y cuales publicas-✅➡**0?/10/22**
 
 
-❌ ⭕ ✅ 👁‍🗨 💥 ❗ 🚫 ➡
+❌ ⭕ ✅ 👁‍🗨 💥 ❗ ➡
 
 
 
@@ -112,6 +112,4 @@
 👁‍🗨➡investigar
 
 💥➡buscar ayuda
-
-🚫 ➡ descartado
 

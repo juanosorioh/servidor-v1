@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const anunciosSchema = new mongoose.Schema({
   autor: {type: mongoose.Schema.Types.ObjectId, ref: "personas"},
 
-  fecha: { type: String},
+  fecha: { type: Date},
 
   anuncio: { type: String },
 

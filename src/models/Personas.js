@@ -14,7 +14,7 @@ const PerfilSchema = new mongoose.Schema({
     type: String,
   },
   birthdate: {
-    type: String,
+    type: Date,
   },
   dni: {
     type: Number,

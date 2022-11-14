@@ -85,11 +85,11 @@
 
 # **-middlewares y helpers**
 
---Validaciones alumnos-❌👁‍🗨➡**0?/10/22** 
+--Validaciones alumnos-✅➡**0?/10/22** 
 
---Validaciones profesores-❌👁‍🗨➡**0?/10/22**
+--Validaciones profesores-✅➡**0?/10/22**
 
---Validaciones administrativos-❌👁‍🗨➡**0?/10/22**
+--Validaciones administrativos-✅➡**0?/10/22**
 
 --generacion de JWT-✅➡**23/10/22**
 

@@ -1,12 +1,13 @@
 const {check}  = require ('express-validator');
+const {validarErrores} = require ('./validarErrores.js');
 
-const validarAnuncios  = async (req, res, next) => {
-    check('autor').not().isEmpty().toString(),
-    check('fecha').not().isEmpty().toString().isDate(),
-    check('anuncio').not().isEmpty().toString(),
+const validarAnuncios  = [
+    check('autor').not().isEmpty().isString(),
+    check('fecha').not().isEmpty().isString().isDate(),
+    check('anuncio').not().isEmpty().isString(),
     check('materias').not().isEmpty().isArray(),
-    check('comentarios').not().isEmpty().isArray()
-next();
-} 
+    check('comentarios').not().isEmpty().isArray(),
+    validarErrores
+]
     
 module.exports = validarAnuncios;

@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const router = Router();
 const validarJWT = require('../middlewares/validarJWT')
+const validarCarreras = require ('../middlewares/validarCarreras')
+const validarMaterias = require ('../middlewares/validarMaterias')
 
 const {
   mostrarAlumnosActivos,
@@ -28,7 +30,7 @@ const {
   //mostrarComentarios
 } = require("../controllers/administrativos.controllers");
 
-router.get("/mostrarAlumnosActivos", mostrarAlumnosActivos);
+router.get("/mostrarAlumnosActivos" , mostrarAlumnosActivos);
 router.get("/mostrarUsuariosActivos", mostrarUsuariosActivos);
 router.get("/mostrarAlumnosTotales", mostrarAlumnosTotales);
 router.get("/mostrarProfesoresActivos", mostrarProfesoresActivos);
@@ -39,8 +41,8 @@ router.get("/mostrarMaterias", mostrarMaterias);
 router.get("/mostrarCarreras", mostrarCarreras);
 router.get("/mostrarAnuncios", mostrarAnuncios);
 router.post("/agregarUsuario", agregarUsuario);
-router.post("/agregarMateria", agregarMateria);
-router.post("/agregarCarrera", agregarCarrera);
+router.post("/agregarMateria", validarMaterias, agregarMateria);
+router.post("/agregarCarrera", validarCarreras, agregarCarrera);
 router.put("/modificarUsuario/:id", modificarUsuario);
 router.put("/borrarUsuario/:id", borrarUsuario);
 router.post("/agregarComentario/:id", agregarComentario);

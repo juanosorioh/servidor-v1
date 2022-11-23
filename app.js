@@ -20,7 +20,7 @@ app.use(cors())
 //routes
 app.use('/alumnos', validarJWT, require('./src/routes/alumnos.routes'));
 app.use('/profesores', validarJWT, require('./src/routes/profesores.routes'));
-app.use('/administrativos', validarJWT, validarUsuario, require('./src/routes/administrativos.routes'));
+app.use('/administrativos', /* validarJWT, validarUsuario, */ require('./src/routes/administrativos.routes'));
 app.use('/auth', require('./src/routes/auth.routes'))
 
 //start a server 
